@@ -1,0 +1,130 @@
+{% if judging is empty or judging.submission.submittime >= current_team_contest.endtime or (verificationRequired and not judging.verified) %}
+    <div class="alert alert-danger">제출기록이 없거나 아직 심사되지 않았습니다.</div>
+{% else %}
+    <div class="container">
+        {% if not judging.valid %}
+            <div class="alert alert-warning">이 제출은 무시됩니다. 점수에 반영되지 않습니다.
+            </div>
+        {% endif %}
+
+        <div class="d-flex flex-row">
+            <div class="p-2">
+                Problem:
+                <b>
+                        <span class="probid">
+                            {{ judging.submission.contestProblem.shortname }}</span> -
+                    {{ judging.submission.contestProblem.problem.name }}
+                </b>
+            </div>
+            <div class="p-2">
+                제출시간:
+                <b>{{ judging.submission.submittime | printtime(null, current_team_contest) }}</b>
+            </div>
+            <div class="p-2">
+                언어:
+                <b>{{ judging.submission.language.name }}</b>
+            </div>
+            <div class="p-2">
+                컴파일:
+                {% if judging.result == 'compiler-error' %}
+                    <span class="badge badge-danger">failed</span>
+                {% else %}
+                    <span class="badge badge-success">successful</span>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if judging.result != 'compiler-error' %}
+            <div class="d-flex flex-row">
+                <div class="p-2">
+                    제출 결과: {{ judging.result | printResult }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if allowDownload %}
+            <div class="d-flex flex-row">
+                <div class="p-2">
+                    <a class="btn btn-primary" href="{{ path('team_submission_download', {'submitId': judging.submission.submitid}) }}">
+                        <i class="fa fa-download"></i> 제출코드 다운로드
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if showCompile == 2 or (showCompile == 1 and judging.result == 'compiler-error') %}
+            <hr/>
+            <h4 class="text-center">컴파일 출력</h4>
+            {% if judging.outputCompile(true) is not empty %}
+                <pre class="output_text pre-scrollable">{{ judging.outputCompile(true) }}</pre>
+            {% else %}
+                <p class="nodata">컴파일러 오류나 경고가 없었습니다.</p>
+            {% endif %}
+        {% endif %}
+
+        {% if showSampleOutput and judging.result != 'compiler-error' %}
+            <hr/>
+            <h4 class="text-center">제공된 샘플 데이터에서 실행</h4>
+
+            {% if runs is empty %}
+                <p class="nodata">사용 가능한 샘플 케이스가 없습니다.</p>
+            {% else %}
+                {% for run in runs %}
+                    <h5 id="run-{{ run.0.rank }}" class="text-center mt-4">Run {{ run.0.rank }}</h5>
+
+                    {% set judgingRun = run.0.judgingRuns.first %}
+                    {% if judgingRun == null or judgingRun.runresult == null %}
+                        <p class="nodata">아직 실행이 끝나지 않았습니다.</p>
+                    {% else %}
+                        <div class="row">
+                            <div class="col-md-{{ size|default(4) }}">
+                                <table class="table table-sm table-striped">
+                                    <tr>
+                                        <th>설명</th>
+                                        <td>{{ run.0.description(true) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>실행시간</th>
+                                        <td>{{ judgingRun.runtime }} sec</td>
+                                    </tr>
+                                    <tr>
+                                        <th>결과</th>
+                                        <td>
+                                                <span class="sol sol_{% if judgingRun.runresult != 'correct' %} in{% endif %}correct">
+                                                    {{ judgingRun.runresult }}
+                                                </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <h6 class="text-center">출력결과</h6>
+                        {% if run.output_run is not empty %}
+                            <pre class="output_text">
+{{ run.output_run }}</pre>
+                        {% else %}
+                            <p class="nodata">출력 결과가 없습니다.</p>
+                        {% endif %}
+
+                        <h6 class="text-center">출력 결과 차이</h6>
+                        {% if run.output_diff is not empty %}
+                            <pre class="output_text">
+{{ run.output_diff }}</pre>
+                        {% else %}
+                            <p class="nodata">출력 결과 변동 없음.</p>
+                        {% endif %}
+
+                        <h6 class="text-center">Error 출력 (info/debug/errors)</h6>
+                        {% if run.output_error is not empty %}
+                            <pre class="output_text">
+{{ run.output_error }}</pre>
+                        {% else %}
+                            <p class="nodata">stderr 출력이 없습니다.</p>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %} {# not runs is empty #}
+        {% endif %} {# showSampleOutput and judging.result != 'compiler-error' #}
+    </div>
+{% endif %} {# not (judging is empty or judging.submission.submittime >= current_team_contest.endtime or (verificationRequired and not judging.verified)) #}

@@ -1,0 +1,18 @@
+{% extends 'team/base.html.twig' %}
+
+{% block title %}질문 보기 - {{ parent() }}{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">질문
+    {% if clarification.senderId == team.teamid %}답변{% endif%}</h1>
+
+    {% include 'team/partials/clarification_content.html.twig' %}
+
+    <div class="container clarificationform mt-3">
+    <button class="btn btn-secondary btn-sm" data-toggle="collapse" data-target="#collapsereplyform"
+            aria-expanded="false" aria-controls="collapsereplyform">
+        <i class="fa fa-reply"></i> 질문에 대해 답변하기
+    </button>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "team/base.html.twig" %}
+
+{% block title %}{{ parent() }} - 출력{% endblock %}
+
+{% block extrahead %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container pt-5">
+        <h1 class="text-center">출력 파일</h1>
+
+        <pre class="output_text m-3">
+{{ output }}
+</pre>
+
+        {% if success %}
+            <div class="alert alert-success">파일이 인쇄되었습니다</div>
+        {% else %}
+            <div class="alert alert-danger">출력하는 동안 오류가 발생했습니다. 운영진에게 문의하십시오.</div>
+        {% endif %}
+
+        <a href="./" class="btn btn-secondary mt-3">닫기</a>
+    </div>
+
+{% endblock %}
