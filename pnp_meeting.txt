@@ -1,0 +1,3 @@
+scp -r .\docker_webapp pnp01@220.67.126.126:~/
+
+sudo docker cp  ~/webapp domserver:/opt/domjudge/domserver/
