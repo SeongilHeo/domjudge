@@ -1,0 +1,106 @@
+[Sep 04 19:10:24.297] judgedaemon[47]: Judge started on pnp-ubuntu30-1 [DOMjudge/7.3.3]
+[Sep 04 19:10:24.300] judgedaemon[47]: Installing signal handlers
+[Sep 04 19:10:24.300] judgedaemon[47]: executing chroot script: 'chroot-startstop.sh check'
+[Sep 04 19:10:24.302] judgedaemon[47]: Registering judgehost on endpoint default: http://220.67.126.126/api/v4
+[Sep 04 19:10:24.304] judgedaemon[47]: API request POST judgehosts
+[Sep 04 19:10:24.338] judgedaemon[47]: API request GET config
+[Sep 04 19:10:24.356] judgedaemon[47]: API request POST judgehosts/next-judging/pnp-ubuntu30-1
+[Sep 04 19:10:24.381] judgedaemon[47]: No submissions in queue (for endpoint default), waiting...
+[Sep 04 19:37:30.141] judgedaemon[47]: Judging submission s8 (endpoint default) (t3/p2/py3), id j11...
+[Sep 04 19:37:30.142] judgedaemon[47]: API request GET config
+[Sep 04 19:37:30.159] judgedaemon[47]: Working directory: /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/2/8/11
+[Sep 04 19:37:30.161] judgedaemon[47]: API request GET contests/2/submissions/8/source-code
+[Sep 04 19:37:30.186] judgedaemon[47]: Fetching new executable 'py3'
+[Sep 04 19:37:30.189] judgedaemon[47]: API request GET executables/py3
+[Sep 04 19:37:30.209] judgedaemon[47]: Unzipping
+[Sep 04 19:37:30.218] judgedaemon[47]: Compiling
+[Sep 04 19:37:30.225] compile.sh[81]: starting '/opt/domjudge/judgehost/lib/judge/compile.sh', PID = 81
+[Sep 04 19:37:30.227] compile.sh[81]: arguments: '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/py3/run' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/2/8/11'
+[Sep 04 19:37:30.229] compile.sh[81]: source file(s): a.py
+[Sep 04 19:37:30.233] compile.sh[81]: starting compile
+[Sep 04 19:37:30.319] compile.sh[81]: checking compilation exit-status
+[Sep 04 19:37:30.322] compile.sh[81]: Compilation successful
+[Sep 04 19:37:30.325] compile.sh[81]: exiting, code = '0'
+[Sep 04 19:37:30.327] judgedaemon[47]: API request PUT judgehosts/update-judging/pnp-ubuntu30-1/11
+[Sep 04 19:37:30.424] judgedaemon[47]: executing chroot script: 'chroot-startstop.sh start'
+[Sep 04 19:37:30.481] judgedaemon[47]: Running testcase 1...
+[Sep 04 19:37:30.481] judgedaemon[47]: API request GET testcases/2/file/input
+[Sep 04 19:37:30.501] judgedaemon[47]: API request GET testcases/2/file/output
+[Sep 04 19:37:30.518] judgedaemon[47]: Fetched new input,output testcase 1 for problem p2
+[Sep 04 19:37:30.527] judgedaemon[47]: Fetching new executable 'run'
+[Sep 04 19:37:30.533] judgedaemon[47]: API request GET executables/run
+[Sep 04 19:37:30.551] judgedaemon[47]: Unzipping
+[Sep 04 19:37:30.563] judgedaemon[47]: Compiling
+[Sep 04 19:37:30.566] judgedaemon[47]: Fetching new executable 'compare'
+[Sep 04 19:37:30.572] judgedaemon[47]: API request GET executables/compare
+[Sep 04 19:37:30.593] judgedaemon[47]: Unzipping
+[Sep 04 19:37:30.602] judgedaemon[47]: Compiling
+[Sep 04 19:37:30.880] testcase_run.sh[201]: starting '/opt/domjudge/judgehost/lib/judge/testcase_run.sh', PID = 201
+[Sep 04 19:37:30.881] testcase_run.sh[201]: arguments: '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/testcase/testcase.2.1.9b05c566cf4d373cd23ffe75787c1f6d.in' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/testcase/testcase.2.1.0b93bf53346750cc7e04c02f31443721.out' '5:6' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/2/8/11/testcase001'
+[Sep 04 19:37:30.883] testcase_run.sh[201]: optionals: '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/run/run' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/compare/run' 'float_tolerance 1E-6'
+[Sep 04 19:37:30.888] testcase_run.sh[201]: setting up testing (chroot) environment
+[Sep 04 19:37:30.893] testcase_run.sh[201]: creating /dev/null character-special device
+[Sep 04 19:37:30.899] testcase_run.sh[201]: running program
+[Sep 04 19:37:30.901] testcase_run.sh[201]: runcheck: /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/run/run testdata.in program.out sudo -n /opt/domjudge/judgehost/bin/runguard -P 1 -r /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/2/8/11/testcase001/.. --nproc=64 --no-core --streamsize=8192 --user=domjudge-run-1 --group=domjudge-run --walltime=5:6 --cputime=5:6 --memsize=2097152 --filesize=8192 --stderr=program.err --outmeta=program.meta -- /testcase001/execdir/program
+[Sep 04 19:37:30.988] testcase_run.sh[201]: comparing output
+[Sep 04 19:37:30.993] testcase_run.sh[201]: starting compare script '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/compare/run'
+[Sep 04 19:37:30.997] testcase_run.sh[201]: runcheck: sudo -n /opt/domjudge/judgehost/bin/runguard -P 1 -u domjudge-run-1 -g domjudge-run -m 2097152 -t 30 -c -f 2621440 -s 2621440 -M compare.meta -- /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/compare/run testdata.in testdata.out feedback/ float_tolerance 1E-6
+[Sep 04 19:37:31.065] testcase_run.sh[201]: checking compare script exit-status: 43
+[Sep 04 19:37:31.068] testcase_run.sh[201]: checking program run exit-status
+[Sep 04 19:37:31.087] testcase_run.sh[201]: exiting with status '105'
+[Sep 04 19:37:31.089] judgedaemon[47]: API request POST judgehosts/add-judging-run/pnp-ubuntu30-1/11
+[Sep 04 19:37:31.299] judgedaemon[47]: Testcase 1 done, result: wrong-answer
+[Sep 04 19:37:31.299] judgedaemon[47]: API request GET testcases/next-to-judge/11
+[Sep 04 19:37:31.389] judgedaemon[47]: Running testcase 2...
+[Sep 04 19:37:31.389] judgedaemon[47]: API request GET testcases/3/file/input
+[Sep 04 19:37:31.418] judgedaemon[47]: API request GET testcases/3/file/output
+[Sep 04 19:37:31.435] judgedaemon[47]: Fetched new input,output testcase 2 for problem p2
+[Sep 04 19:37:31.451] testcase_run.sh[333]: starting '/opt/domjudge/judgehost/lib/judge/testcase_run.sh', PID = 333
+[Sep 04 19:37:31.453] testcase_run.sh[333]: arguments: '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/testcase/testcase.2.2.a94c7fc1f4dac435f6fc5d5d4c7ba173.in' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/testcase/testcase.2.2.2c266fa701a6034e02d928331d5bd4ef.out' '5:6' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/2/8/11/testcase002'
+[Sep 04 19:37:31.455] testcase_run.sh[333]: optionals: '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/run/run' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/compare/run' 'float_tolerance 1E-6'
+[Sep 04 19:37:31.462] testcase_run.sh[333]: setting up testing (chroot) environment
+[Sep 04 19:37:31.468] testcase_run.sh[333]: creating /dev/null character-special device
+[Sep 04 19:37:31.474] testcase_run.sh[333]: running program
+[Sep 04 19:37:31.475] testcase_run.sh[333]: runcheck: /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/run/run testdata.in program.out sudo -n /opt/domjudge/judgehost/bin/runguard -P 1 -r /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/2/8/11/testcase002/.. --nproc=64 --no-core --streamsize=8192 --user=domjudge-run-1 --group=domjudge-run --walltime=5:6 --cputime=5:6 --memsize=2097152 --filesize=8192 --stderr=program.err --outmeta=program.meta -- /testcase002/execdir/program
+[Sep 04 19:37:31.539] testcase_run.sh[333]: comparing output
+[Sep 04 19:37:31.543] testcase_run.sh[333]: starting compare script '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/compare/run'
+[Sep 04 19:37:31.547] testcase_run.sh[333]: runcheck: sudo -n /opt/domjudge/judgehost/bin/runguard -P 1 -u domjudge-run-1 -g domjudge-run -m 2097152 -t 30 -c -f 2621440 -s 2621440 -M compare.meta -- /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/compare/run testdata.in testdata.out feedback/ float_tolerance 1E-6
+[Sep 04 19:37:31.583] testcase_run.sh[333]: checking compare script exit-status: 43
+[Sep 04 19:37:31.587] testcase_run.sh[333]: checking program run exit-status
+[Sep 04 19:37:31.606] testcase_run.sh[333]: exiting with status '105'
+[Sep 04 19:37:31.608] judgedaemon[47]: API request POST judgehosts/add-judging-run/pnp-ubuntu30-1/11
+[Sep 04 19:37:31.657] judgedaemon[47]: Testcase 2 done, result: wrong-answer
+[Sep 04 19:37:31.658] judgedaemon[47]: API request GET testcases/next-to-judge/11
+[Sep 04 19:37:31.678] judgedaemon[47]: Running testcase 3...
+[Sep 04 19:37:31.678] judgedaemon[47]: API request GET testcases/4/file/input
+[Sep 04 19:37:31.701] judgedaemon[47]: API request GET testcases/4/file/output
+[Sep 04 19:37:31.735] judgedaemon[47]: Fetched new input,output testcase 3 for problem p2
+[Sep 04 19:37:31.761] testcase_run.sh[465]: starting '/opt/domjudge/judgehost/lib/judge/testcase_run.sh', PID = 465
+[Sep 04 19:37:31.763] testcase_run.sh[465]: arguments: '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/testcase/testcase.2.3.fc157fa74267ba846e8ddc9c0747ad53.in' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/testcase/testcase.2.3.d38340056cc41e311beae85f906d7f24.out' '5:6' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/2/8/11/testcase003'
+[Sep 04 19:37:31.765] testcase_run.sh[465]: optionals: '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/run/run' '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/compare/run' 'float_tolerance 1E-6'
+[Sep 04 19:37:31.771] testcase_run.sh[465]: setting up testing (chroot) environment
+[Sep 04 19:37:31.777] testcase_run.sh[465]: creating /dev/null character-special device
+[Sep 04 19:37:31.783] testcase_run.sh[465]: running program
+[Sep 04 19:37:31.784] testcase_run.sh[465]: runcheck: /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/run/run testdata.in program.out sudo -n /opt/domjudge/judgehost/bin/runguard -P 1 -r /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/2/8/11/testcase003/.. --nproc=64 --no-core --streamsize=8192 --user=domjudge-run-1 --group=domjudge-run --walltime=5:6 --cputime=5:6 --memsize=2097152 --filesize=8192 --stderr=program.err --outmeta=program.meta -- /testcase003/execdir/program
+[Sep 04 19:37:31.858] testcase_run.sh[465]: comparing output
+[Sep 04 19:37:31.862] testcase_run.sh[465]: starting compare script '/opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/compare/run'
+[Sep 04 19:37:31.866] testcase_run.sh[465]: runcheck: sudo -n /opt/domjudge/judgehost/bin/runguard -P 1 -u domjudge-run-1 -g domjudge-run -m 2097152 -t 30 -c -f 2621440 -s 2621440 -M compare.meta -- /opt/domjudge/judgehost/judgings/pnp-ubuntu30-1/endpoint-default/executable/compare/run testdata.in testdata.out feedback/ float_tolerance 1E-6
+[Sep 04 19:37:31.903] testcase_run.sh[465]: checking compare script exit-status: 43
+[Sep 04 19:37:31.907] testcase_run.sh[465]: checking program run exit-status
+[Sep 04 19:37:31.925] testcase_run.sh[465]: exiting with status '105'
+[Sep 04 19:37:31.927] judgedaemon[47]: API request POST judgehosts/add-judging-run/pnp-ubuntu30-1/11
+[Sep 04 19:37:32.007] judgedaemon[47]: Testcase 3 done, result: wrong-answer
+[Sep 04 19:37:32.007] judgedaemon[47]: executing chroot script: 'chroot-startstop.sh stop'
+[Sep 04 19:37:32.039] judgedaemon[47]: Judging s8/j11 finished
+[Sep 04 19:37:32.040] judgedaemon[47]: API request POST judgehosts/next-judging/pnp-ubuntu30-1
+[Sep 04 19:37:32.077] judgedaemon[47]: No submissions in queue (for endpoint default), waiting...
+[Sep 04 19:43:04.832] judgedaemon[47]: Signal 1 received
+[Sep 04 19:43:04.832] judgedaemon[47]: Received signal, exiting.
+[Sep 04 19:44:37.145] judgedaemon[36]: Judge started on pnp-ubuntu30-1 [DOMjudge/7.3.3]
+[Sep 04 19:44:37.151] judgedaemon[36]: Installing signal handlers
+[Sep 04 19:44:37.151] judgedaemon[36]: executing chroot script: 'chroot-startstop.sh check'
+[Sep 04 19:44:37.153] judgedaemon[36]: Registering judgehost on endpoint default: http://220.67.126.126/api/v4
+[Sep 04 19:44:37.155] judgedaemon[36]: API request POST judgehosts
+[Sep 04 19:44:37.204] judgedaemon[36]: API request GET config
+[Sep 04 19:44:37.228] judgedaemon[36]: API request POST judgehosts/next-judging/pnp-ubuntu30-1
+[Sep 04 19:44:37.253] judgedaemon[36]: No submissions in queue (for endpoint default), waiting...

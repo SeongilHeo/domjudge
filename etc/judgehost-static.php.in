@@ -24,6 +24,7 @@ define('RUNGROUP',    '@RUNGROUP@');
 // Possible exitcodes from testcase_run.sh and their meaning.
 $EXITCODES = array (
     0   => 'correct',
+    5   => 'partial-correct',
     101 => 'compiler-error',
     102 => 'timelimit',
     103 => 'run-error',
