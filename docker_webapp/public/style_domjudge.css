@@ -13,7 +13,7 @@ body {
 }
 
 #djlogo {
-    width: 93px; height: 196px;
+    width: 332px; height: 273px;
 }
 
 
@@ -50,6 +50,7 @@ body {
 
 .sol_correct      { color: green;  }
 .sol_incorrect    { color: red;    }
+.sol_partial      { color: #F9B835;}
 .sol_queued       { color: gray;   }
 
 .judgetime      { font-size: smaller; font-style: italic; }
